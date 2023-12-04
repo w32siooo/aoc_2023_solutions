@@ -5,7 +5,7 @@ def part1():
     with open('test.txt') as f:
         lines=f.readlines()
         hashmap = {}
-
+        print("potato")
         # Adding key-value pairs to the hashmap
         hashmap["key1"] = "value1"
         hashmap["key2"] = "value2"
