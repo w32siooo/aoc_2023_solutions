@@ -76,4 +76,3 @@ if part == "part1":
     part1()
 if part == "part2":
     part2()
-part2()
