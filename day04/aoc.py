@@ -17,9 +17,9 @@ def part1():
                 try:
                     winning_numbers.index(num)
                     matches=matches+1
-                    print(f"match {num}")
+                    pass
                 except:
-                    print(f"no match {num}")
+                    pass
             #print(matches)
             score=1
             if matches == 0:
