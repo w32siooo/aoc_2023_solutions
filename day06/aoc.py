@@ -14,7 +14,7 @@ def part1():
             list_of_records=[]
             time_left=time_left-1
             speed=1
-            for i in range (10000):
+            for i in range (int(times[i])):
                 my_distance=time_left*speed
                 speed=speed+1
                 time_left=time_left-1
