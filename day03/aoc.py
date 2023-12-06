@@ -18,6 +18,7 @@ def part1():
             y=y+1
         
         
+        
         print(hashmap)
 
 def part2():
