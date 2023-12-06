@@ -35,7 +35,6 @@ def part1():
 def part2():
     with open('input.txt') as f:
         lines=f.readlines()
-        #file_input = [int(x) for x in f.readlines()]
         first_digit=0
         last_digit=0
         total=0
