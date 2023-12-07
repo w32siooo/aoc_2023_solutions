@@ -9,7 +9,6 @@ def part1():
         cards_with_qualities={}
         counter=0
         for line in lines:
-            #str_matches= re.findall(r"(?=("+'|'.join(cards)+r"))", line)
             hand = line.split(" ")[0]
             bet= int(line.split(" ")[1])
             
@@ -33,11 +32,9 @@ def part1():
                     except:
                         matches[card]=2
                 prev=card
-            print(hand_card_indexes)
 
             if len(matches)==0:
                 highest_card=hand_card_indexes[-1]
-                print(f"highest card: {highest_card}")
                 quality=1
             
             if len(matches)==2:
@@ -45,10 +42,8 @@ def part1():
                 for match in matches:
                     full_house_checker=full_house_checker+matches[match]
                 if full_house_checker==5:
-                    print("full house: {hand_card_indexes}")
                     quality=5
                 else:
-                    print(f"Two pairs: {hand_card_indexes}")
 
                     quality=3
 
@@ -65,12 +60,8 @@ def part1():
                     if of_a_kind == 2:
                         quality=2
                     
-                    print(f"{of_a_kind} {match}'s of a kind: {hand_card_indexes}")
             cards_with_qualities[counter]=(quality,unsorted_hand,bet)
             counter=counter+1
-            print(f"match quality: {quality}")
-        print("=====")
-        #print(cards_with_qualities)
         sorted_hashmap = dict(sorted(cards_with_qualities.items(), key=custom_sort,reverse=True))
 
         rank=1
@@ -79,7 +70,6 @@ def part1():
             bet=sorted_hashmap[a_map][2]
             total=total+(bet*rank)
             rank=rank+1
-        print(sorted_hashmap)
         return total #250957639 rght
 
 def custom_sort(item):
@@ -90,7 +80,6 @@ def custom_sort(item):
         index=index*0.010
 
     return (-item[1][0],-score)
-
 
 
 def part2():
@@ -130,7 +119,7 @@ def part2():
             highest_card=hand_card_indexes[-1]
 
             for card in unsorted_hand:
-                if card==0: #if joker
+                if card==0: 
                     try:
                         of_a_kind=matches[card]
                     except:
@@ -140,6 +129,7 @@ def part2():
                         of_a_kind=matches[card]+jokers
                     except:
                         of_a_kind=1+jokers
+                
                 if of_a_kind >= 5 :
                     quality=7
                 if of_a_kind == 4 and quality<6:
@@ -158,27 +148,11 @@ def part2():
                     quality=3
                 if jokers==1 and quality<5:
                     quality=5
-            
-            if quality ==1:
-                print(f"high card {highest_card} {hand_card_indexes}")
-            if quality==5:
-                print(f"Fuld hus: {hand_card_indexes}")
-            if quality==3:
-                print(f"To par: {hand_card_indexes}")
-            if quality==7:
-                print(f"5 of a kind {hand_card_indexes}")
-            if quality ==6: 
-                print(f"4 of a kind  {hand_card_indexes}")
-            if quality== 4:
-                print(f"3 of a kind  {hand_card_indexes}")
-            if quality ==2 :
-                print(f"2 of a kind {hand_card_indexes}")
+
 
             cards_with_qualities[counter]=(quality,unsorted_hand,bet)
             counter=counter+1
-            #print(f"match quality: {quality}")
-        print("=====")
-        #print(cards_with_qualities)
+
         sorted_hashmap = dict(sorted(cards_with_qualities.items(), key=custom_sort,reverse=True))
 
         rank=1
@@ -188,9 +162,6 @@ def part2():
             total=total+(bet*rank)
             rank=rank+1
         return total  
-
-
-
 
 part = os.environ.get('part')
 if part == "part1":
