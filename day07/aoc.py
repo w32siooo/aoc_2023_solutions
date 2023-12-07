@@ -89,11 +89,8 @@ def part2():
         cards_with_qualities={}
         counter=0
         for line in lines:
-            #str_matches= re.findall(r"(?=("+'|'.join(cards)+r"))", line)
             hand = line.split(" ")[0]
             bet= int(line.split(" ")[1])
-            #get jokers
-            jokers=0
             jokers=len(re.findall("J",hand))
             quality=1
             hand_card_indexes=[]
@@ -168,7 +165,3 @@ if part == "part1":
     part1()
 if part == "part2":
     part2()
-
-assert  part1() ==250957639
-assert part2() == 251515496
-#251515496 
