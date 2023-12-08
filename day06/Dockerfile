@@ -1,7 +1,3 @@
-FROM python:3.12-slim
-
-WORKDIR /app
-
+FROM python:3-alpine 
 COPY . .
-
-CMD ["python", "aoc.py"]
+CMD python aoc.py
